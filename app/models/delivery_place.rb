@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class DeliveryPlace < ApplicationRecord
   has_many :menus
   validates :name, presence: true
@@ -15,7 +17,7 @@ class DeliveryPlace < ApplicationRecord
     return if delivery_order_time.blank? || delivery_time.blank?
 
     if delivery_time < delivery_order_time
-      errors.add(:delivery_time, "must be after order time")
+      errors.add(:delivery_time, 'must be after order time')
     end
   end
 end

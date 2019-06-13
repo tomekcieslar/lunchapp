@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateMenus < ActiveRecord::Migration[5.2]
   def change
     create_table :menus do |t|
@@ -8,8 +10,8 @@ class CreateMenus < ActiveRecord::Migration[5.2]
       t.timestamps
     end
 
-   add_foreign_key :menus, :delivery_places
-   add_index :menus, :delivery_place_id
-   add_index :menus, [:delivery_place_id, :date], unique: true
+    add_foreign_key :menus, :delivery_places
+    add_index :menus, :delivery_place_id
+    add_index :menus, %i[delivery_place_id date], unique: true
   end
 end

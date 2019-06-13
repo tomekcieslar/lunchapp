@@ -11,13 +11,25 @@
       <tbody>
         <tr>
           <td>
-              <p><%= t('delivery_place.name') %> <%=link_to delivery_place.name, delivery_place_path(delivery_place) %></p>
-              <p><%= t('delivery_place.delivery_time') %> <%= delivery_place.hours_and_minutes(delivery_place.delivery_time) %></p>
-              <p><%= t('delivery_place.delivery_order_time') %> <%= delivery_place.hours_and_minutes(delivery_place.delivery_order_time) %></p>
+              <p>
+                <%= t('delivery_place.name') %>
+                <%=link_to delivery_place.name, delivery_place_path(delivery_place) %>
+              </p>
+              <p>
+                <%= t('delivery_place.delivery_time') %>
+                <%= delivery_place.hours_and_minutes(delivery_place.delivery_time) %>
+              </p>
+              <p>
+                <%= t('delivery_place.delivery_order_time') %>
+                <%= delivery_place.hours_and_minutes(delivery_place.delivery_order_time) %>
+              </p>
           </td>
           <td>
             <% delivery_place.menus.each do |menu|%>
-              <p><%= t('menu.day') %><%= link_to menu.date, delivery_place_menu_path(delivery_place,menu) %></p>
+              <p>
+                <%= t('menu.day') %>
+                <%= link_to menu.date, delivery_place_menu_path(delivery_place,menu) %>
+              </p>
             <% end %>
           </td>
         </tr>

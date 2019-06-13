@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class DeliveryPlacesController < ApplicationController
   def index
     @delivery_places = DeliveryPlace.all.includes(:menus)
@@ -5,7 +7,6 @@ class DeliveryPlacesController < ApplicationController
 
   def show
     @delivery_place = DeliveryPlace.find(params[:id])
-
   end
 
   def new
@@ -15,7 +16,8 @@ class DeliveryPlacesController < ApplicationController
   def create
     @delivery_place = DeliveryPlace.new(delivery_place_params)
     if @delivery_place.save
-      redirect_to @delivery_place, note: "Delivery Place was created successfully"
+      redirect_to @delivery_place,
+                  note: 'Delivery Place was created successfully'
     else
       render :new
     end
@@ -28,7 +30,8 @@ class DeliveryPlacesController < ApplicationController
   def update
     @delivery_place = DeliveryPlace.find(params[:id])
     if @delivery_place.update(delivery_place_params)
-      redirect_to @delivery_place, note: "Delivery Place was updated successfully"
+      redirect_to @delivery_place,
+                  note: 'Delivery Place was updated successfully'
     else
       render :edit
     end
@@ -36,8 +39,10 @@ class DeliveryPlacesController < ApplicationController
 
   def destroy
     @delivery_place = DeliveryPlace.find(params[:id])
-    if @delivery_place.destroy
-      redirect_to delivery_places_path, note: "Delivery Place was delated successfully"
+    if @delivery_place.menus.empty?
+      @delivery_place.destroy
+      redirect_to delivery_places_path,
+                  note: 'Delivery Place was delated successfully'
     else
       redirect_to @delivery_place
     end

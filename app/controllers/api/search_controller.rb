@@ -1,8 +1,10 @@
+# frozen_string_literal: true
+
 class Api::SearchController < ApplicationController
   def index
     if params[:date].present?
       date = Time.zone.parse(params[:date])
-      @menus = Menu.includes(:delivery_place).where("order_before_at > ?", date)
+      @menus = Menu.includes(:delivery_place).where('order_before_at > ?', date)
     else
       @menus = Menu.includes(:delivery_place).all
     end
@@ -12,7 +14,7 @@ class Api::SearchController < ApplicationController
   private
 
   def delivery_json
-    @menus.uniq { |m| m.delivery_place_id }.map do |menu|
+    @menus.uniq(&:delivery_place_id).map do |menu|
       {
         id: menu.delivery_place.id,
         name: menu.delivery_place.name,

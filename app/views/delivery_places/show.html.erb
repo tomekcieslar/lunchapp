@@ -5,14 +5,26 @@
     <%= @delivery_place.hours_and_minutes(@delivery_place.delivery_time) %>
   </div>
   <div class="row">
-    <%= link_to t('buttons.delete_delivery_place'), delivery_place_path(@delivery_place.id), method: 'delete', class: "btn btn-outline-danger" %>
-    <%= link_to t('buttons.edit_delivery_place'), edit_delivery_place_path(@delivery_place.id), class: "btn btn-outline-primary" %>
-    <%= link_to t('buttons.new_menu'), new_delivery_place_menu_path(@delivery_place.id), class: "btn btn-outline-success"%>
+    <%= link_to t('buttons.delete_delivery_place'),
+      delivery_place_path(@delivery_place.id),
+      method: 'delete', class: "btn btn-outline-danger"
+    %>
+    <%= link_to t('buttons.edit_delivery_place'),
+      edit_delivery_place_path(@delivery_place.id),
+      class: "btn btn-outline-primary"
+    %>
+    <%= link_to t('buttons.new_menu'),
+      new_delivery_place_menu_path(@delivery_place.id),
+      class: "btn btn-outline-success"
+    %>
   </div>
   <div class="list-group">
     <% @delivery_place.menus.each do |menu| %>
         <ul>
-          <%= link_to t('menu.menu')+ menu.date.to_s, delivery_place_menu_path(@delivery_place,menu), class: "list-group-item list-group-item-action list-group-item-light" %>
+          <%= link_to t('menu.menu')+ menu.date.to_s,
+            delivery_place_menu_path(@delivery_place,menu),
+            class: "list-group-item list-group-item-action list-group-item-light"
+          %>
         </ul>
       <% end %>
   </div>
