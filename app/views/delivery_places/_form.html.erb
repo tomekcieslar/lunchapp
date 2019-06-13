@@ -15,29 +15,29 @@
 
   <div class="form-row">
     <div class="col-md-4 mb-3">
-      <%= form.label :name %>
+      <%= form.label t('delivery_place.name') %>
       <%= form.text_field :name, class: "form-control"%>
     </div>
   </div>
   <div class="form-row">
     <div class="col-md-2 mb-2">
-      <%= form.label :delivery_time %>
+      <%= form.label t('delivery_place.delivery_time') %>
       <%= form.time_field :delivery_time, class: "form-control" %>
     </div>
 
     <div class="col-md-2 mb-1">
-      <%= form.label :delivery_order_time %>
+      <%= form.label t('delivery_place.delivery_order_time') %>
       <%= form.time_field :delivery_order_time, class: "form-control" %>
     </div>
   </div>
   <div class="form-row">
     <div class="col-md-3 mb-1">
-      <%= form.label :ahead_of_time %>
+      <%= form.label t('delivery_place.ahead_of_time')%>
       <%= form.check_box :ahead_of_time, class: "form-check-lebel" %>
     </div>
   </div>
 
   <div class="actions">
-    <%= form.submit "Save", class: "btn btn-outline-success" %>
+    <%= form.submit t('buttons.save'), class: "btn btn-outline-success" %>
   </div>
 <% end %>

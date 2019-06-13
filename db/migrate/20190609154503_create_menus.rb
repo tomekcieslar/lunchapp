@@ -1,9 +1,9 @@
-class CreateMenus < ActiveRecord::Migration[6.0]
+class CreateMenus < ActiveRecord::Migration[5.2]
   def change
     create_table :menus do |t|
       t.date :date, null: false
       t.integer :delivery_place_id, null: false
-      t.datetime :order_before_at
+      t.datetime :order_before_at, null: false
 
       t.timestamps
     end

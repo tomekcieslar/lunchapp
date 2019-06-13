@@ -14,12 +14,12 @@
   <% end %>
   <div class="form-row">
     <div class="col-md-3 mb-2">
-      <%= form.label :date %>
+      <%= form.label t('menu.date') %>
       <%= form.date_field :date, class: "form-control"  %>
     </div>
   </div>
 
   <div class="actions">
-    <%= form.submit "Save", class: "btn btn-outline-success" %>
+    <%= form.submit t('buttons.save'), class: "btn btn-outline-success" %>
   </div>
 <% end %>

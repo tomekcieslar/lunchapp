@@ -14,17 +14,17 @@
   <% end %>
   <div class="form-row">
     <div class="col-md-4 mb-3">
-      <%= form.label :name %>
+      <%= form.label t('dish.name') %>
       <%= form.text_field :name, class: "form-control" %>
     </div>
 
     <div class="col-md-2 mb-3">
-      <%= form.label :price %>
+      <%= form.label t('dish.price') %>
       <%= form.number_field :price, step: 0.01, min: 0.01, class: "form-control" %>
     </div>
   </div>
 
   <div class="actions">
-    <%= form.submit "Save", class: "btn btn-outline-success" %>
+    <%= form.submit t('buttons.save'), class: "btn btn-outline-success" %>
   </div>
 <% end %>
