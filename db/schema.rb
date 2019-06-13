@@ -1,0 +1,48 @@
+# This file is auto-generated from the current state of the database. Instead
+# of editing this file, please use the migrations feature of Active Record to
+# incrementally modify your database, and then regenerate this schema definition.
+#
+# This file is the source Rails uses to define your schema when running `rails
+# db:schema:load`. When creating a new database, `rails db:schema:load` tends to
+# be faster and is potentially less error prone than running all of your
+# migrations from scratch. Old migrations may fail to apply correctly if those
+# migrations use external dependencies or application code.
+#
+# It's strongly recommended that you check this file into your version control system.
+
+ActiveRecord::Schema.define(version: 2019_06_09_154824) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
+  create_table "delivery_places", force: :cascade do |t|
+    t.string "name", null: false
+    t.time "delivery_time", null: false
+    t.time "delivery_order_time", null: false
+    t.boolean "ahead_of_time", default: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "dishes", force: :cascade do |t|
+    t.string "name", null: false
+    t.decimal "price", null: false
+    t.integer "menu_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["menu_id"], name: "index_dishes_on_menu_id"
+  end
+
+  create_table "menus", force: :cascade do |t|
+    t.date "date", null: false
+    t.integer "delivery_place_id", null: false
+    t.datetime "order_before_at"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["delivery_place_id", "date"], name: "index_menus_on_delivery_place_id_and_date", unique: true
+    t.index ["delivery_place_id"], name: "index_menus_on_delivery_place_id"
+  end
+
+  add_foreign_key "dishes", "menus"
+  add_foreign_key "menus", "delivery_places"
+end

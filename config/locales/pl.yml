@@ -1,0 +1,20 @@
+pl:
+  buttons:
+    back: "Wróć"
+    edit: "Edytuj"
+    new_menu: "Nowe Menu"
+    new_dish: "Nowe danie"
+    new_delivery_place: "Nowe miejsce dostawy"
+    create: "Stwórz"
+  delivery_place:
+    name: "Nazwa"
+    delivery_time: "Czas dostawy"
+    delivery_order_time: "Godzina składania zamówień"
+    delivery_place: "Miejsce dostawy"
+  menu:
+    menu: "Menu"
+    date: "Data"
+  dish:
+    dish: "Danie"
+    name: "Nazwa"
+    price: "cena"

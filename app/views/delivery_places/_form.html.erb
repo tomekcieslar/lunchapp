@@ -1,0 +1,43 @@
+<%= form_with(model: delivery_place, local: true) do |form| %>
+  <% if delivery_place.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(delivery_place.errors.count, "error") %>
+         prohibited this course from being saved:
+      </h2>
+      <ul>
+        <% delivery_place.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-row">
+    <div class="col-md-4 mb-3">
+      <%= form.label :name %>
+      <%= form.text_field :name, class: "form-control"%>
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="col-md-2 mb-2">
+      <%= form.label :delivery_time %>
+      <%= form.time_field :delivery_time, class: "form-control" %>
+    </div>
+
+    <div class="col-md-2 mb-1">
+      <%= form.label :delivery_order_time %>
+      <%= form.time_field :delivery_order_time, class: "form-control" %>
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="col-md-3 mb-1">
+      <%= form.label :ahead_of_time %>
+      <%= form.check_box :ahead_of_time, class: "form-check-lebel" %>
+    </div>
+  </div>
+
+  <div class="actions">
+    <%= form.submit "Save", class: "btn btn-outline-success" %>
+  </div>
+<% end %>

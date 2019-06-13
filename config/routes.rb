@@ -1,3 +1,16 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  namespace :api do
+    get 'search/index'
+  end
+  resources :delivery_places do
+    resources :menus
+  end
+  resources :menus, only: [] do
+    resources :dishes
+  end
+  get 'search', to: 'search#'
+  namespace :api do
+    get 'search', to: 'search#index'
+  end
+  root 'delivery_places#index'
 end

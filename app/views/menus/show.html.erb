@@ -1,0 +1,18 @@
+<div class="container-fluid">
+  <div class="row">
+    <h3>Menu<h3>
+    <h3><%= @menu.date_format(@menu.date) %><h3>
+  </div>
+  <div class="row">
+    <%= link_to 'Edit', edit_delivery_place_menu_path(@menu.delivery_place_id, @menu.id), class: "btn btn-outline-primary" %>
+    <%= link_to 'Back', delivery_place_path(@menu.delivery_place_id), class: "btn btn-outline-primary" %>
+    <%= link_to 'New dish', new_menu_dish_path(@menu.id), class: "btn btn-outline-success" %>
+  </div>
+  <div class="list-group">
+    <% @menu.dishes.each do |dish| %>
+      <ul>
+        <%= link_to dish.name_with_price(dish), edit_menu_dish_path(@menu,dish), class: "list-group-item list-group-item-action list-group-item-light" %>
+      </ul>
+    <% end %>
+  </div>
+</div>

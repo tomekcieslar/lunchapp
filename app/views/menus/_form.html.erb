@@ -1,0 +1,25 @@
+<%= form_with(url: url, model: menu, local: true) do |form| %>
+  <% if menu.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(menu.errors.count, "error") %>
+         prohibited this course from being saved:
+      </h2>
+      <ul>
+        <% menu.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="form-row">
+    <div class="col-md-3 mb-2">
+      <%= form.label :date %>
+      <%= form.date_field :date, class: "form-control"  %>
+    </div>
+  </div>
+
+  <div class="actions">
+    <%= form.submit "Save", class: "btn btn-outline-success" %>
+  </div>
+<% end %>

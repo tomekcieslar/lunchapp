@@ -1,0 +1,19 @@
+<div class="container-fluid">
+  <div class="row">
+    <%= @delivery_place.name %>
+    <%= @delivery_place.hours_and_minutes(@delivery_place.delivery_order_time) %>
+    <%= @delivery_place.hours_and_minutes(@delivery_place.delivery_time) %>
+  </div>
+  <div class="row">
+    <%= link_to "Delete", delivery_place_path(@delivery_place.id), method: 'delete', class: "btn btn-outline-danger" %>
+    <%= link_to "Edit", edit_delivery_place_path(@delivery_place.id), class: "btn btn-outline-primary" %>
+    <%= link_to "New Menu", new_delivery_place_menu_path(@delivery_place.id), class: "btn btn-outline-success"%>
+  </div>
+  <div class="list-group">
+    <% @delivery_place.menus.each do |menu| %>
+        <ul>
+          <%= link_to 'Menu: '+ menu.date.to_s, delivery_place_menu_path(@delivery_place,menu), class: "list-group-item list-group-item-action list-group-item-light" %>
+        </ul>
+      <% end %>
+  </div>
+</div>

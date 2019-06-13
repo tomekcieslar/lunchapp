@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  delivery_time: 2019-06-09 17:28:49
+  delivery_order_time: 2019-06-09 17:28:49
+
+two:
+  name: MyString
+  delivery_time: 2019-06-09 17:28:49
+  delivery_order_time: 2019-06-09 17:28:49
