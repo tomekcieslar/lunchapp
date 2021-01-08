@@ -11,6 +11,8 @@ class DeliveryPlacesController < ApplicationController
 
   def new
     @delivery_place = DeliveryPlace.new
+
+    return
   end
 
   def create
